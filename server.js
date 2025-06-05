@@ -16,7 +16,9 @@ const flash = require('connect-flash');
 const kitchenRoutes = require('./routes/KitchenRoutes');
 const multer = require('multer');
 require('dotenv').config();
-require('./passportConfig'); 
+require('./passportConfig')
+const path = require('path');
+
 
 const app = express();
 
@@ -51,8 +53,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.set('view engine', 'ejs');
-app.use(express.static('public'));
-app.use(express.static('uploads'));
+app.set('views', path.join(__dirname, 'views'));
+
+app.use(express.static(path.join(__dirname, 'public')));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.use('/staff', staffProcessRoutes);
 app.use('/api/orders', orderRoutes);
