@@ -5,7 +5,7 @@ const Staff = require('../models/Staff');
 const KitchenStaff = require('../models/KitchenStaff');
 const CartItem = require('../models/cartItem');
 const axios = require('axios');
-const RECAPTCHA_SECRET_KEY = '6LeZR1YrAAAAAMJi-kZQRAGWQkEipbVzoY1ewjrl';
+const RECAPTCHA_SECRET_KEY = '6LccSVYrAAAAAGjEnQVYm12LwjGTryYdZK9gIWSG';
 
 exports.showLogin = (req, res) => {
   res.render('login', { error: null });
