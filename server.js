@@ -75,5 +75,5 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-const serverless = require('serverless-http');
-module.exports.handler = serverless(app);
+const PORT = process.env.PORT;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
